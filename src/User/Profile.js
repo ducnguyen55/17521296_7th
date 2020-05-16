@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import jwt_decode from 'jwt-decode'
-import {Link,Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 class Profile extends Component {
 		constructor(){
 		super();
@@ -35,7 +35,7 @@ class Profile extends Component {
 				<ul>
 					<li className="nav-item">
 						<a href="" onClick={this.logOut} className="nav-link">
-							Logout
+						Logout
 						</a>
 					</li>
 					<li className="nav_item">

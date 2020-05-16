@@ -5,7 +5,8 @@ export const register = newUser => {
 		.post('http://localhost:5000/user/register',{
 			full_name: newUser.full_name,
 			gmail: newUser.gmail,
-			password: newUser.password
+			password: newUser.password,
+			role: 'user'
 		})
 		.then(res => {
 			console.log('Registered!')

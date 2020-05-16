@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-
 import {Route, Switch} from 'react-router-dom';
-
 import Homepage from '../components/Homepage/Homepage';
 import Dress from '../components/Dress/Dress';
 import Shirt from '../components/Shirt/Shirt';
@@ -12,7 +10,8 @@ import Set from '../components/Set/Set';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
 import Profile from '../User/Profile';
-
+import Admin from '../Admin/Admin';
+import Detail from '../Admin/Product/Detail';
 class RouterURL extends Component {
 	render() {
 		return (
@@ -28,6 +27,8 @@ class RouterURL extends Component {
 						<Route path="/dangnhap" component={Login} />
 						<Route path="/dangky" component={Register} />
 						<Route path="/profile" component={Profile} />
+						<Route path="/admin" component={Admin} />
+						<Route path="/product/:id/:slug" component={Detail} />
 						<Route component={Homepage} />
 					</Switch>
 				</div>

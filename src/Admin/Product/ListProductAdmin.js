@@ -1,5 +1,5 @@
 import React from 'react';
-import Product from './Product';
+import ProductAdmin from './ProductAdmin';
 
 const ListProduct = ({product}) => {
 	return (
@@ -7,7 +7,7 @@ const ListProduct = ({product}) => {
 		  {
 		  	product.map((good,i)=> {
 			  		return(
-			  		 	<Product
+			  		 	<ProductAdmin
 			  		 		key={i} 
 			  		 		id={good.id}
 			  		 		name={good.name} 

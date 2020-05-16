@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Login.css';
-import {Link,Redirect} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {login} from '../UserFunction/UserFunction';
 import {User} from '../Menu/Menu';
 class Login extends Component {

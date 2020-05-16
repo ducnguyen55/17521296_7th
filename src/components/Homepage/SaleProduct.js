@@ -32,7 +32,7 @@ class SaleProduct extends Component {
 			return (
 				<div className="container">
 					<h2 className="Title">Sản phẩm khuyến mãi</h2>
-					<ListProduct product={saleproduct}/>
+					<ListProduct product={saleproduct} admin={false}/>
 				</div>
 			);
 		}

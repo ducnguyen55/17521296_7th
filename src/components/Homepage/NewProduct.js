@@ -32,7 +32,7 @@ class NewProduct extends Component {
 			return (
 				<div className="container">
 					<h2 className="Title">Sản phẩm mới</h2>
-					<ListProduct product={newproduct}/>
+					<ListProduct product={newproduct} admin={false}/>
 				</div>
 			);
 		}
