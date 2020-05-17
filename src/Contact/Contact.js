@@ -8,13 +8,13 @@ class Contact extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state);
     };
 
     changeHandler = (event) => {
         const name = event.target.name;
         const value = event.target.value;
         this.setState({[name]:value});
+        console.log(this.state.name);
     };
     Submit = () => {
         let submit = false;
@@ -23,7 +23,6 @@ class Contact extends Component {
         var message = document.getElementById('message').value;
         let format = /^[a-zA-Z0-9]*\@[a-zA-Z0-9]*\.[a-zA-Z0-9]*$/;
         var confirm = document.getElementById('confirm');
-
         if(name!=''&&format.test(gmail)&&message!=''){
             fetch('https://apiserver6th.herokuapp.com/get-data/contact/insert',{
             method: 'POST',

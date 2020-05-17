@@ -12,6 +12,7 @@ import Register from '../Register/Register';
 import Profile from '../User/Profile';
 import Admin from '../Admin/Admin';
 import Detail from '../Admin/Product/Detail';
+import AddProduct from '../Admin/Product/AddProduct';
 class RouterURL extends Component {
 	render() {
 		return (
@@ -29,6 +30,7 @@ class RouterURL extends Component {
 						<Route path="/profile" component={Profile} />
 						<Route path="/admin" component={Admin} />
 						<Route path="/product/:id/:slug" component={Detail} />
+						<Route path="/addproduct" component={AddProduct} />
 						<Route component={Homepage} />
 					</Switch>
 				</div>

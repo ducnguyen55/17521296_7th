@@ -29,13 +29,13 @@ const 	to_slug = (str) => {
     // return
     return str;
 	}
-const ProductAdmin = ({id,name,image,discount,price}) => {
+const ProductAdmin = ({id,name,url,discount,price}) => {
 	if(discount==="true")
 	{
 		return (
 			<div className='col-sm-3'>
 				<Link to={"/product/" + `${id}` + "/" + to_slug(`${name}`) }>
-					<img alt='imageproduct' src={`${image}`} id="image"/>
+					<img alt='imageproduct' src={`${url}`} id="image"/>
 				</Link>
 				<h3 className="productName">
 					<a href="#">{name}</a>
@@ -57,7 +57,7 @@ const ProductAdmin = ({id,name,image,discount,price}) => {
 		return (
 			<div className='col-sm-3'>
 				<Link to={"/product/" + `${id}` + "/" + to_slug(`${name}`) }>
-					<img alt='imageproduct' src={`${image}`} id="image"/>
+					<img alt='imageproduct' src={`${url}`} id="image"/>
 				</Link>
 				<h3 className="productName">
 					<a href="#">{name}</a>

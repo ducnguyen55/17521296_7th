@@ -9,7 +9,7 @@ class Detail extends Component {
 		};
 	}
 	async componentDidMount() {
-		await fetch(`https://apiserver6th.herokuapp.com/product/get-data`)
+		await fetch(`http://localhost:5000/product/get-data`)
 		.then(response => response.json())
 		.then(data => this.setState({products:data}));
 	};
@@ -26,9 +26,9 @@ class Detail extends Component {
 								<div className="col-sm-12 productDetail">
 									<div className="product-info">
 										<div className="col-sm-6">
-											<img alt='imageproduct' src={`${product.image}`} id="image"/>
+											<img alt='imageproduct' src={`${product.url}`} id="image"/>
 										</div>
-										<div className="col-sm-6 info">
+										<div className="col-sm-6 infoproduct">
 											<form onSubmit={this.onSubmit}>
 												<div>
 													<label>ID :</label>
@@ -44,13 +44,13 @@ class Detail extends Component {
 												</div>
 												<div>
 													<label for="">URL :</label>
-													<input type="text" id="url" onChange={this.changeHandler} placeholder="Nhập đường dẫn" defaultValue={product.image} />
+													<input type="text" id="url" onChange={this.changeHandler} placeholder="Nhập đường dẫn" defaultValue={product.url} />
 												</div>
 												<div>
 													<label for="">Price :</label>
 													<input type="text" id="price" onChange={this.changeHandler} placeholder="Nhập giá" defaultValue={`${product.price}`+',000'} />
 												</div>
-												<button type="submit" className="btn btn-primary btn-block" onClick={this.login}>Save</button>
+												<button type="submit" className="btn btn-primary btn-block">Save</button>
 											</form>
 										</div>
 									</div> 

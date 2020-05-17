@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import './Admin.css'
 import ListProductAdmin from './Product/ListProductAdmin'
 import SearchBox from './SearchBox'
-
+import {Link} from 'react-router-dom'
 class Admin extends Component {
 	constructor(){
 		super();
@@ -24,7 +24,7 @@ class Admin extends Component {
     	this.setState({searchfield: event.target.value});
     }
 	async componentDidMount() {
-		await fetch(`https://apiserver6th.herokuapp.com/product/get-data`)
+		await fetch(`http://localhost:5000/product/get-data`)
 		.then(response => response.json())
 		.then(data => this.setState({products:data}));
 	}
@@ -59,7 +59,6 @@ class Admin extends Component {
             </li>
           );
         });
-
 		if(!products.length)
 			return <h1>Loading</h1>
 		else{
@@ -69,13 +68,22 @@ class Admin extends Component {
 						<h2>Admin Page</h2>
 					</div>
 					<div className="col-sm-12 searchproduct">
-						<section id="search">
-							<label for="search-input">
-								<i class="fa fa-search" aria-hidden="true"></i>
-								<span class="search-only"></span>
-							</label>
-							<SearchBox searchChange={this.onSearchChange}/>
-						</section>
+						<div className="col-sm-12 menuAdmin">
+							<div className="product-info">
+								<div className="col-sm-9 search">
+									<section id="search">
+										<label for="search-input">
+											<i class="fa fa-search" aria-hidden="true"></i>
+											<span class="search-only"></span>
+										</label>
+										<SearchBox searchChange={this.onSearchChange}/>
+									</section>
+								</div>
+								<div className="col-sm-3 addproduct">
+									<Link to="/addproduct" className="addbtn btn"><i class="addicon fa fa-plus" aria-hidden="true"></i></Link>
+								</div>
+							</div> 
+						</div>
 						<div className="productAdmin">
 		                	{renderproduct}
 						</div>

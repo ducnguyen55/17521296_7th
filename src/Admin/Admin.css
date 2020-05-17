@@ -43,6 +43,26 @@ label {
     margin-top: 20px;
     font-size: 20px;
 }
+.searchproduct .menuAdmin{
+    display: grid;
+}
+.menuAdmin .search{
+    float: left;
+    width: 100%;
+}
+.menuAdmin .addproduct{
+    float: left;
+    width: 100%;
+    margin-top: 25px;
+}
+.menuAdmin .addproduct .addbtn{
+    font-size: 20px;
+    color: blue;
+}
+.menuAdmin .addproduct .addicon:after{
+    content: 'Add a product';
+    margin: 0px 0px 10px 10px;
+}
 .container .productAdmin
 {
 	display: block;

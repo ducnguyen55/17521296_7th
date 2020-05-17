@@ -8,26 +8,27 @@
 	display: grid;
 }
 .detail #image {
-	padding: 50px;
 	float: left;
-	width: 100%;
+	width: 80%;
+	border: solid 1px;
+	margin: 50px;
 }
-.detail .info{
+.detail .infoproduct{
 	float:left;
 	width: 100%;
 	justify-content: center;
 }
 
-.container .info {
+.container .infoproduct {
 	border: solid 1px;
 	margin-top: 50px;
 	padding: 1.25rem;
 }
-.container .info div{
+.container .inforoduct div{
 	display: block;
 }
 
-.container .info input{
+.container .infoproduct input{
 	display: block;
 	width: 100%;
 	height: 40px;
@@ -36,7 +37,7 @@
     border: 1px solid #ced4da;
 	border-radius: 0.25rem;
 }
-.container .info button{
+.container .infoproduct button{
 	display: block;
 	width: 100%;
 	background-color: #EB6864;
@@ -45,10 +46,10 @@
 	font-size: 15px;
 	margin-top: 0;
 }
-.container .info .Info a{
+.container .infoproduct .Info a{
 	margin-left: 5px;
 }
-.container .info #confirm{
+.container .infoproduct #confirm{
 	display: block;
 	width: 100%;
 	background: rgba(220,223,171,0.3);

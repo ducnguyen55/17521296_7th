@@ -16,18 +16,21 @@ class Profile extends Component {
 			this.props.history.push('/dress');
 	}
 	componentDidMount(){
-		const token = localStorage.usertoken;
-		const decoded =jwt_decode(token);
-		this.setState({
-			full_name: decoded.full_name,
-			gmail: decoded.gmail
-		})
+		if(localStorage.length!=0)
+		{
+			const token = localStorage.usertoken;
+			const decoded =jwt_decode(token);
+			this.setState({
+				full_name: decoded.full_name,
+				gmail: decoded.gmail
+			})
+		}
 	};
 	CheckLogin(){
-		var token = localStorage.usertoken;
-		if(!token)
+		if(localStorage.length==0){
 			this.props.history.push('/');
-	}
+		}
+	};
 	render() {
 		{this.CheckLogin()};
 		return (
