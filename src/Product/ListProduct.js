@@ -11,7 +11,7 @@ const ListProduct = ({product}) => {
 			  		 		key={i} 
 			  		 		id={good.id}
 			  		 		name={good.name} 
-			  		 		image={good.image}
+			  		 		url={good.url}
 			  		 		price={good.price}
 			  		 		discount={good.discount}
 			  		 		/>	

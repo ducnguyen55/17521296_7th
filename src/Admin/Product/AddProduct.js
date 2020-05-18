@@ -42,7 +42,8 @@ class AddProduct extends Component {
             price: price
         }
         addProduct(Product).then(res => {
-        	alert("SUCCESS !!!");
+        	alert("ADD PRODUCT SUCCESS !!!");
+			this.props.history.push('/admin');
         })
     }
 	render() {
@@ -61,12 +62,12 @@ class AddProduct extends Component {
 									<label>Type :</label>
 									<select class="choose form-control" type="text" id="type" name="type">
 										<option value hidden>Type of product</option>
-										<option>Đầm</option>
-										<option>Vest</option>
-										<option>Sơ mi</option>
-										<option>Juyp</option>
-										<option>Áo phông</option>
-										<option>Set bộ</option>
+										<option>dress</option>
+										<option>vest</option>
+										<option>shirt</option>
+										<option>juyp</option>
+										<option>aophong</option>
+										<option>set</option>
 									</select>
 								</div>
 								<div>

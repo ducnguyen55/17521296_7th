@@ -1,13 +1,16 @@
 import React from 'react';
 import './Product.css';
 import {Link} from 'react-router-dom';
-const Product = ({id,name,image,discount,price,admin}) => {
+const format_currency = (price) => {
+	return price.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1.");
+}
+const Product = ({id,name,url,discount,price,admin}) => {
 	if(discount==="true")
 	{
 		return (
 			<div className='col-sm-3'>
 				<a href="#">
-					<img alt='imageproduct' src={`${image}`} id="image"/>
+					<img alt='imageproduct' src={`${url}`} id="image"/>
 				</a>
 				<h3 className="productName">
 					<a href="#">{name}</a>
@@ -16,10 +19,10 @@ const Product = ({id,name,image,discount,price,admin}) => {
 					<span>-50%</span>
 				</div>
 				<div className="priceDiscount">
-					{price}.000
+					{format_currency(price)}
 				</div>
 				<div className="price">
-					{price/2}00
+					{format_currency(price/2)}
 				</div>
 			</div>	
 		);
@@ -29,13 +32,13 @@ const Product = ({id,name,image,discount,price,admin}) => {
 		return (
 			<div className='col-sm-3'>
 				<a href="#">
-					<img alt='imageproduct' src={`${image}`} id="image"/>
+					<img alt='imageproduct' src={`${url}`} id="image"/>
 				</a>
 				<h3 className="productName">
 					<a href="#">{name}</a>
 				</h3>
 				<div className="price">
-					{price},000
+					{format_currency(price)}
 				</div>
 			</div>	
 		);
