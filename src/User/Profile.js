@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import jwt_decode from 'jwt-decode'
-import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom'
+import './Profile.css'
 class Profile extends Component {
 		constructor(){
 		super();
@@ -13,7 +14,7 @@ class Profile extends Component {
 	logOut(e){
 			e.preventDefault();
 			localStorage.removeItem('usertoken');
-			this.props.history.push('/dress');
+			this.props.history.push('/');
 	}
 	componentDidMount(){
 		if(localStorage.length!=0)
@@ -22,8 +23,10 @@ class Profile extends Component {
 			const decoded =jwt_decode(token);
 			this.setState({
 				full_name: decoded.full_name,
-				gmail: decoded.gmail
+				gmail: decoded.gmail,
+				role: decoded.role
 			})
+			console.log(decoded);
 		}
 	};
 	CheckLogin(){
@@ -31,6 +34,10 @@ class Profile extends Component {
 			this.props.history.push('/');
 		}
 	};
+	CheckRole(){
+		if(this.state.role=="admin")
+			return <li className="nav_item"><Link to="/admin">Admin Page</Link></li>
+	}
 	render() {
 		{this.CheckLogin()};
 		return (
@@ -44,6 +51,7 @@ class Profile extends Component {
 					<li className="nav_item">
 						<Link to="/">Trang chủ</Link>
 					</li>
+					{this.CheckRole()}
 				</ul>
 				<div className ="container">
 					<div className ="jumbotron mt-5">

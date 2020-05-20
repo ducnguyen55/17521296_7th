@@ -9,7 +9,8 @@ class Register extends Component {
         this.state={
             name: '',
             gmail: '',
-            password: ''
+            password: '',
+            role: 'user'
         };
         this.changeHandler = this.changeHandler.bind(this);
         this.Submit = this.Submit.bind(this)
@@ -25,7 +26,8 @@ class Register extends Component {
         const User = {
             full_name: this.state.name,
             gmail: this.state.gmail,
-            password: this.state.password
+            password: this.state.password,
+            role: this.state.role
         }
         var confirmpw = document.getElementById('confirm').value;
         var password = document.getElementById('password').value;

@@ -64,6 +64,9 @@ class Admin extends Component {
 		else{
 			return (
 				<div className="container">
+					<li className="nav_item homebutton">
+						<Link to="/">Trang chủ</Link>
+					</li>
 					<div className="Titile">
 						<h2>Admin Page</h2>
 					</div>

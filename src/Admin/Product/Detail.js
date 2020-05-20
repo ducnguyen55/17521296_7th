@@ -1,7 +1,8 @@
 import React, {Component} from 'react'
 import './Detail.css'
-import {updateProduct, deleteProduct} from '../AdminFunction'
-
+import {updateProduct} from '../AdminFunction'
+import {deleteProduct} from '../AdminFunction'
+import {Link} from 'react-router-dom'
 class Detail extends Component {
 	constructor(){
 		super();
@@ -66,6 +67,9 @@ class Detail extends Component {
 		const {products} = this.state;
 		return(
 			<div className="container detail">
+				<li className="nav_item homebutton">
+					<Link to="/admin">Trở lại</Link>
+				</li>
 				<h1 className="detailTitle"> SẢN PHẨM </h1>
 				{
 					products.map((product,key) => {

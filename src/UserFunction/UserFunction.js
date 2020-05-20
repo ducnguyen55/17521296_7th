@@ -6,7 +6,7 @@ export const register = newUser => {
 			full_name: newUser.full_name,
 			gmail: newUser.gmail,
 			password: newUser.password,
-			role: 'user'
+			role: newUser.role
 		})
 		.then(res => {
 			console.log('Registered!')

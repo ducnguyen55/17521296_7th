@@ -3,7 +3,7 @@ import './Detail.css'
 import './AddProduct.css'
 import UploadImage from './UploadImage'
 import {addProduct} from '../AdminFunction'
-
+import {Link} from 'react-router-dom'
 class AddProduct extends Component {
 	constructor(){
 		super();
@@ -50,6 +50,9 @@ class AddProduct extends Component {
 		var { id, type, name, url, price} = this.state;
 		return(
 			<div className="container detail">
+				<li className="nav_item homebutton">
+					<Link to="/admin">Trở lại</Link>
+				</li>
 				<h1 className="detailTitle"> SẢN PHẨM </h1>
 				<div className="col-sm-12 productDetail">
 					<div className="product-info">
