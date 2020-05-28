@@ -24,7 +24,7 @@ class Contact extends Component {
         let format = /^[a-zA-Z0-9]*\@[a-zA-Z0-9]*\.[a-zA-Z0-9]*$/;
         var confirm = document.getElementById('confirm');
         if(name!=''&&format.test(gmail)&&message!=''){
-            fetch('https://apiserver6th.herokuapp.com/get-data/contact/insert',{
+            fetch('https://apiserver7th.herokuapp.com/contact/insert',{
             method: 'POST',
             headers: {
                 Accept: 'application/json',

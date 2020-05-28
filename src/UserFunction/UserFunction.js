@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const register = newUser => {
 	return axios
-		.post('http://localhost:5000/user/register',{
+		.post('https://apiserver7th.herokuapp.com/user/register',{
 			full_name: newUser.full_name,
 			gmail: newUser.gmail,
 			password: newUser.password,
@@ -15,7 +15,7 @@ export const register = newUser => {
 
 export const login = user => {
 	return axios
-		.post('http://localhost:5000/user/login',{
+		.post('https://apiserver7th.herokuapp.com/user/login',{
 			gmail: user.gmail,
 			password: user.password
 		})

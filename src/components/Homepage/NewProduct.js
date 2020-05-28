@@ -12,7 +12,7 @@ class NewProduct extends Component {
 	}
 
 	async componentDidMount() {
-		await fetch(`http://localhost:5000/product/get-data`)
+		await fetch(`https://apiserver7th.herokuapp.com/product/get-data`)
 		.then(response => response.json())
 		.then(data => this.setState({product:data}));
 	}
