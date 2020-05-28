@@ -19,9 +19,7 @@ export const updateProduct = Product => {
 	return axios
 		.patch('http://localhost:5000/product/update',{
 			id: Product.id,
-			type: Product.type,
 			name: Product.name,
-			url: Product.url,
 			price: Product.price,
 			token: localStorage.usertoken
 		})
