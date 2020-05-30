@@ -28,9 +28,9 @@ class RouterURL extends Component {
 						<Route path="/dangnhap" component={Login} />
 						<Route path="/dangky" component={Register} />
 						<Route path="/profile" component={Profile} />
-						<Route path="/admin" component={Admin} />
-						<Route path="/product/:id/:slug" component={Detail} />
-						<Route path="/addproduct" component={AddProduct} />
+						<Route exact path="/admin" component={Admin} />
+						<Route path="/admin/product/:id/:slug" component={Detail} />
+						<Route path="/admin/addproduct" component={AddProduct} />
 						<Route component={Homepage} />
 					</Switch>
 				</div>

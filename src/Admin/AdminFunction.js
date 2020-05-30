@@ -1,14 +1,21 @@
-import axios from 'axios'
+import axios from '../AxiosServer'
 
 export const addProduct = newProduct => {
-	return axios
-		.post('http://localhost:5000/product/insert',{
-			id: newProduct.id,
-			type: newProduct.type,
-			name: newProduct.name,
-			url: newProduct.url,
-			price: newProduct.price,
-			token: localStorage.usertoken	
+	return fetch('https://apiserver7th.herokuapp.com/product/insert',{
+			method: 'POST',
+			headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                api_key: localStorage.usertoken
+            },
+            body:JSON.stringify({
+				id: newProduct.id,
+				type: newProduct.type,
+				name: newProduct.name,
+				url: newProduct.url,
+				price: newProduct.price,
+				token: localStorage.usertoken	
+			})
 		})
 		.then(res => {
 			console.log('Add product success!')
@@ -16,24 +23,36 @@ export const addProduct = newProduct => {
 }
 
 export const updateProduct = Product => {
-	return axios
-		.patch('http://localhost:5000/product/update',{
-			id: Product.id,
-			name: Product.name,
-			price: Product.price,
-			token: localStorage.usertoken
+	return 	fetch('https://apiserver7th.herokuapp.com/product/update',{
+			method: 'PATCH',
+			headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                api_key: localStorage.usertoken
+            },
+            body:JSON.stringify({
+				id: Product.id,
+				name: Product.name,
+				price: Product.price
+            })
 		})
 		.then(res => {
 			console.log('Update product success!')
-		})
+		}
+	)
 }
 
 export const deleteProduct = Product => {
-	return axios
-		.delete(`http://localhost:5000/product/${Product.id}`,{
-			token: localStorage.usertoken
-			})
+	return axios(`https://apiserver7th.herokuapp.com/product/${Product.id}`,{
+			method: 'DELETE',
+						headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json',
+                api_key: localStorage.usertoken
+            }
+		})
 		.then(res => {
 			console.log('Deleted product!')
-		})
+		}
+	)
 }

@@ -5,6 +5,7 @@ import Background from './Background';
 import NewProduct from './NewProduct';
 import SaleProduct from './SaleProduct';
 import Footer from '../../Footer/Footer';
+
 class Homepage extends Component {
   render(){
   return (

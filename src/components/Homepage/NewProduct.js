@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import ListProduct from '../../Product/ListProduct';
 import './NewProduct.css';
+import axios from '../../AxiosServer'
 
 class NewProduct extends Component {
 	constructor(){
@@ -12,9 +13,8 @@ class NewProduct extends Component {
 	}
 
 	async componentDidMount() {
-		await fetch(`https://apiserver7th.herokuapp.com/product/get-data`)
-		.then(response => response.json())
-		.then(data => this.setState({product:data}));
+		await axios.get('/product/get-data')
+		.then(response => this.setState({product:response.data}))
 	}
 
 	Convert = () => {

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ListProduct from './ListProduct';
 import './Product.css';
 import './ProductRender.css';
+import axios from '../AxiosServer'
 class DressProduct extends Component {
 	constructor(){
 		super();
@@ -20,9 +21,8 @@ class DressProduct extends Component {
         });
       }
 	async componentDidMount() {
-		await fetch(`https://apiserver7th.herokuapp.com/product/get-data`)
-		.then(response => response.json())
-		.then(data => this.setState({product:data}));
+		await axios.get('/product/get-data')
+		.then(response => this.setState({product:response.data}))
 	}
 
 	Convert = () => {

@@ -3,6 +3,8 @@ import './Detail.css'
 import {updateProduct} from '../AdminFunction'
 import {deleteProduct} from '../AdminFunction'
 import {Link} from 'react-router-dom'
+import axios from '../../AxiosServer'
+import jwt_decode from 'jwt-decode'
 class Detail extends Component {
 	constructor(){
 		super();
@@ -19,9 +21,13 @@ class Detail extends Component {
         this.Delete = this.Delete.bind(this);
 	}
 	async componentDidMount() {
-		await fetch(`https://apiserver7th.herokuapp.com/product/get-data`)
-		.then(response => response.json())
-		.then(data => this.setState({products:data}));
+		await axios.get('/product/get-data')
+		.then(response => this.setState({products:response.data}));
+		const token = localStorage.usertoken;
+		const decoded =jwt_decode(token);
+		this.setState({
+			role: decoded.role
+		})
 	};
 	changeHandler = (event) => {
         const name = event.target.name;
@@ -62,7 +68,17 @@ class Detail extends Component {
 			this.props.history.push('/admin');
         })
     }
+	CheckLogin = () =>{
+		if(localStorage.length!=0)
+		{
+			const token = localStorage.usertoken;
+			const decoded =jwt_decode(token);
+			if(decoded.role!='admin')
+				this.props.history.push('/');
+		}
+	};
 	render() {
+		{this.CheckLogin()};
 		var pid = parseInt(this.props.match.params.id);
 		const {products} = this.state;
 		return(

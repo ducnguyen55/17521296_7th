@@ -1,8 +1,8 @@
-import axios from 'axios'
+import axios from '../AxiosServer'
 
 export const register = newUser => {
 	return axios
-		.post('https://apiserver7th.herokuapp.com/user/register',{
+		.post('/user/register',{
 			full_name: newUser.full_name,
 			gmail: newUser.gmail,
 			password: newUser.password,
@@ -15,7 +15,7 @@ export const register = newUser => {
 
 export const login = user => {
 	return axios
-		.post('https://apiserver7th.herokuapp.com/user/login',{
+		.post('/user/login',{
 			gmail: user.gmail,
 			password: user.password
 		})

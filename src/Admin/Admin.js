@@ -3,6 +3,8 @@ import './Admin.css'
 import ListProductAdmin from './Product/ListProductAdmin'
 import SearchBox from './SearchBox'
 import {Link} from 'react-router-dom'
+import axios from '../AxiosServer'
+import jwt_decode from 'jwt-decode'
 class Admin extends Component {
 	constructor(){
 		super();
@@ -24,12 +26,20 @@ class Admin extends Component {
     	this.setState({searchfield: event.target.value});
     }
 	async componentDidMount() {
-		await fetch(`https://apiserver7th.herokuapp.com/product/get-data`)
-		.then(response => response.json())
-		.then(data => this.setState({products:data}));
+		await axios.get('/product/get-data')
+		.then(response => this.setState({products:response.data}));
 	}
-
+	CheckLogin = () =>{
+		if(localStorage.length!=0)
+		{
+			const token = localStorage.usertoken;
+			const decoded =jwt_decode(token);
+			if(decoded.role!='admin')
+				this.props.history.push('/');
+		}
+	};
 	render() {
+		{this.CheckLogin()};
 		//Search Product
 		 const filteredProduct = this.state.products.filter(product => {
     		return product.name.toLowerCase().includes(this.state.searchfield.toLowerCase());
@@ -83,7 +93,7 @@ class Admin extends Component {
 									</section>
 								</div>
 								<div className="col-sm-3 addproduct">
-									<Link to="/addproduct" className="addbtn btn"><i class="addicon fa fa-plus" aria-hidden="true"></i></Link>
+									<Link to="/admin/addproduct" className="addbtn btn"><i class="addicon fa fa-plus" aria-hidden="true"></i></Link>
 								</div>
 							</div> 
 						</div>

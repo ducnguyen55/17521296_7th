@@ -9,7 +9,7 @@ class Profile extends Component {
 			full_name: '',
 			gmail: ''
 		};
-		this.logOut = this.logOut.bind(this)
+		this.logOut = this.logOut.bind(this);
 	}
 	logOut(e){
 			e.preventDefault();
@@ -26,18 +26,18 @@ class Profile extends Component {
 				gmail: decoded.gmail,
 				role: decoded.role
 			})
-			console.log(decoded);
-		}
-	};
-	CheckLogin(){
-		if(localStorage.length==0){
-			this.props.history.push('/');
+			console.log(decoded.role);
 		}
 	};
 	CheckRole(){
 		if(this.state.role=="admin")
 			return <li className="nav_item"><Link to="/admin">Admin Page</Link></li>
 	}
+	CheckLogin = () =>{
+		if(localStorage.length==0){
+			this.props.history.push("/");
+		}
+	};
 	render() {
 		{this.CheckLogin()};
 		return (

@@ -4,6 +4,8 @@ import './AddProduct.css'
 import UploadImage from './UploadImage'
 import {addProduct} from '../AdminFunction'
 import {Link} from 'react-router-dom'
+import axios from '../../AxiosServer'
+import jwt_decode from 'jwt-decode'
 class AddProduct extends Component {
 	constructor(){
 		super();
@@ -19,9 +21,13 @@ class AddProduct extends Component {
         this.Submit = this.Submit.bind(this);
 	}
 	async componentDidMount() {
-		await fetch(`https://apiserver7th.herokuapp.com/product/get-data`)
-		.then(response => response.json())
-		.then(data => this.setState({products:data}));
+		await axios.get('/product/get-data')
+		.then(response => this.setState({products:response.data}));
+		const token = localStorage.usertoken;
+		const decoded =jwt_decode(token);
+		this.setState({
+			role: decoded.role
+		})
 	}
     changeHandler = (event) => {
         const name = event.target.name;
@@ -46,7 +52,17 @@ class AddProduct extends Component {
 			this.props.history.push('/admin');
         })
     }
+	CheckLogin = () =>{
+		if(localStorage.length!=0)
+		{
+			const token = localStorage.usertoken;
+			const decoded =jwt_decode(token);
+			if(decoded.role!='admin')
+				this.props.history.push('/');
+		}
+	};
 	render() {
+		{this.CheckLogin()};
 		var { id, type, name, url, price} = this.state;
 		return(
 			<div className="container detail">
