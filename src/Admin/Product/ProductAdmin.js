@@ -37,7 +37,7 @@ const ProductAdmin = ({id,name,url,discount,price}) => {
 	{
 		return (
 			<div className='col-sm-3'>
-				<Link to={"/product/" + `${id}` + "/" + to_slug(`${name}`) }>
+				<Link to={"/admin/product/" + `${id}` + "/" + to_slug(`${name}`) }>
 					<img alt='imageproduct' src={`${url}`} id="image"/>
 				</Link>
 				<h3 className="productName">
